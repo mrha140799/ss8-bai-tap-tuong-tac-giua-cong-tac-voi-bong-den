@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeGym</title>
+</head>
+<body>
+<script>
+    
+    function ElectricLamp() {
+        this.status = false;
+        this.ElectricLamp = function () {
+
+        };
+        this.turnOn = function () {
+            this.status = true;
+        };
+        this.turnOff = function () {
+            this.status = false;
+        };
+        this.getStatus = function () {
+            return this.status;
+        }
+    }
+    function SwitchButton(electricLamp) {
+        this.status;
+        this.lamp = electricLamp;
+
+        this.SwitchButton = function () {
+
+        };
+        this.connectToLamp = function () {
+            this.status = this.lamp.getStatus();
+        };
+        this.switchOff = function () {
+            this.lamp.turnOff();
+        };
+        this.switchOn = function () {
+            this.lamp.turnOn();
+        };
+        this.getStatus = function () {
+            return this.status;
+        }
+    }
+
+    let electricLamp = new ElectricLamp();
+    let switchButon = new SwitchButton(electricLamp);
+    for (let i = 1 ; i<=10 ; i++){
+        switchButon.connectToLamp();
+        if (switchButon.getStatus()) {
+            switchButon.switchOff();
+            console.log(switchButon.getStatus());
+            document.write("Tắt<br>");
+        } else {
+            switchButon.switchOn();
+            console.log(switchButon.getStatus());
+            document.write("Bật <br>");
+        }
+    }
+
+</script>
+</body>
+</html>
